@@ -7,14 +7,17 @@ namespace AppAmalt.Dto
 {
     public class GraphGenderDto
     {
+        public int IdParty { get; set; }
         public int WomenFollower { get; set; }
         public int MenFollower { get; set; }
 
-        public GraphGenderDto(int womenFollower, int menfollower)
+        public GraphGenderDto(int womenFollower, int menFollower, int idParty)
         {
             WomenFollower = womenFollower;
-            MenFollower = menfollower;
+            MenFollower = menFollower;
+            IdParty = idParty;
         }
+
 
     }
 }

@@ -7,26 +7,12 @@ namespace AppAmalt.Controllers
     [Route("party/[controller]")]
     public class EdinayRussiaController : ControllerBase
     {
-        private readonly List<Response> _portraits = new List<Response>()
-        {
-            //new PortraitDto(sex:1,city:4,ocuupation:"work"),
-
-            new Response(new PortraitDto(sex:"men",city:"Moscow"), new GraphsDto(womenFollower:30,menfollower:70))
-        };
+        private readonly Response portrait = new Response(new PortraitDto(sex: "men", city: "Moscow"), new GraphGenderDto(womenFollower: 30, menFollower: 70), new GraphLifeMainDto(1, 2, 3, 4, 5, 6)/*, new GraphCityDto(new List<City>() { new City("A", 18), new City("B", 21) })*/);
 
         public Response GetEdinayRussia()
         {
-            return _portraits[0];
+            return portrait;
         }
-
-        /*public PortraitDto GetSR()
-        {
-            return _portraits[1];
-        }
-
-        public PortraitDto GetKPRF()
-        {
-            return _portraits[2];
-        }*/
     }
+    
 }
