@@ -7,7 +7,7 @@ namespace AppAmalt.Dto
 {
     public class GraphCityDto
     {
-        //public List<City> Cities { get; set; }
-        //public int 
+        public string Name { get; set; }
+        public int Value { get; set; }
     }
 }

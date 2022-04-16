@@ -1,43 +1,51 @@
-﻿using System;
+﻿using AppAmalt.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace AppAmalt.Dto
 {
-    [Keyless]
     public class Response
     {
         public int Id { get; set; }
-        public PortraitDto Portrait { get; set; }
-        public GraphsAgeDto GraphsAge { get; set; }
-        public GraphLifeMainDto GraphsLifeMain { get; set; }
-        public GraphPoliticalDto GraphPolitical { get; set; }
-        public GraphGenderDto GraphGender { get; set; }
+        public Portrait Portrait { get; set; }
+        public GraphAgeDto GraphsAge { get; set; }
+        public LifeMain GraphsLifeMain { get; set; }
+        public Political GraphPolitical { get; set; }
+        public Gender GraphGender { get; set; }
         public GraphCityDto GraphCity { get; set; }
 
-        public Response(PortraitDto portrait, GraphsAgeDto graphsAge, GraphLifeMainDto graphsLifeMain, GraphPoliticalDto graphPolitical, GraphGenderDto graphGender, GraphCityDto graphCity)
+        public Response(GraphAgeDto graphsAge)
+        {
+            GraphsAge = graphsAge;
+        }
+        public Response(Portrait portrait, GraphAgeDto graphsAge, LifeMain graphsLifeMain, Political graphPolitical, Gender graphGender/*, GraphCityDto graphCity*/)
         {
             Portrait = portrait;
             GraphsAge = graphsAge;
             GraphsLifeMain = graphsLifeMain;
             GraphPolitical = graphPolitical;
             GraphGender = graphGender;
-            GraphCity = graphCity;
+            //GraphCity = graphCity;
         }
-        public Response(PortraitDto portrait, GraphGenderDto graphGender, GraphLifeMainDto graphsLifeMain)
+        public Response(Portrait portrait, Gender graphGender, LifeMain graphsLifeMain)
         {
             Portrait = portrait;
             GraphsLifeMain = graphsLifeMain;
             GraphGender = graphGender;
         }
 
-        public Response(PortraitDto portrait, GraphGenderDto graphGender, GraphLifeMainDto graphsLifeMain, GraphCityDto graphCity)
+        public Response(Portrait portrait, Gender graphGender, LifeMain graphsLifeMain, GraphCityDto graphCity)
         {
             Portrait = portrait;
             GraphGender = graphGender;
             GraphsLifeMain = graphsLifeMain;
             GraphCity = graphCity;
+        }
+
+        public Response()
+        {
         }
     }
 }

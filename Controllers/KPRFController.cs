@@ -12,7 +12,8 @@ namespace AppAmalt.Controllers
 
     public class KPRFController : ControllerBase
     {
-        private readonly Response portrait = new Response(new PortraitDto(sex: "men", city: "Moscow"), new GraphGenderDto(womenFollower: 30, menFollower: 70), new GraphLifeMainDto(1, 2, 3, 4, 5, 6) /*new GraphCityDto(new List<City>() { new City("A", 18), new City("B", 21) })*/);
+        private readonly Response portrait;
+        /* private readonly Response portrait = new Response(new PortraitDto(sex: "men", city: "Moscow"), new GraphGenderDto(womenFollower: 30, menFollower: 70, 1), new GraphLifeMainDto(1, 2, 3, 4, 5, 6, 1) *//*new GraphCityDto(new List<City>() { new City("A", 18), new City("B", 21) })*//*);*/
 
         public Response GetKPRF()
         {
