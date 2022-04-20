@@ -9,7 +9,7 @@ namespace AppAmalt.Model
     {
         public string Name { get; set; }
         public int Id { get; set; }
-        public ValueCity ValueCity { get; set; }
+        //public ValueCity ValueCity { get; set; }
 
         public City(string name, int id)
         {

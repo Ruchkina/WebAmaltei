@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using AppAmalt.Dto;
+using AppAmalt.Repository;
 
 namespace AppAmalt.Controllers
 {
@@ -12,12 +13,26 @@ namespace AppAmalt.Controllers
 
     public class SpravedlivayRussiaController : ControllerBase
     {
-        private readonly Response portrait;
-    /*    private readonly Response portrait = new Response(new PortraitDto(sex: "men", city: "Moscow"), new GraphGenderDto(womenFollower: 30, menFollower: 70, 1), new GraphLifeMainDto(7, 8, 3, 4, 5, 6, 1) *//*new /*GraphCityDto(new List<City>() { new City("C", 18), new City("B", 21) })*//*);*/
+        private readonly IResponseRepository _responseRepository;
 
-        public Response GetSpravedlivayRussia()
+        public SpravedlivayRussiaController(IResponseRepository iResponseRepository)
         {
-            return portrait;
+            _responseRepository = iResponseRepository;
+        }
+
+        public async Task<IActionResult> GetSpravedlivayRussia()
+        {
+            IActionResult answer;
+            try
+            {
+                Response response = await _responseRepository.GetResponseAsync(5);
+                answer = Ok(response);
+            }
+            catch (Exception ex)
+            {
+                answer = StatusCode(StatusCodes.Status500InternalServerError);
+            }
+            return answer;
         }
     }
 }

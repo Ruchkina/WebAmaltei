@@ -12,6 +12,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="DatabaseContext\Migrations\20220416194432_UpdIntToDouble.cs" />
+    <Compile Remove="DatabaseContext\Migrations\20220416194432_UpdIntToDouble.Designer.cs" />
+    <Compile Remove="DatabaseContext\Migrations\20220418155534_Upd_Names.cs" />
+    <Compile Remove="DatabaseContext\Migrations\20220418155534_Upd_Names.Designer.cs" />
+    <Compile Remove="DatabaseContext\Migrations\20220420190421_Add_Relation_Education.cs" />
+    <Compile Remove="DatabaseContext\Migrations\20220420190421_Add_Relation_Education.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

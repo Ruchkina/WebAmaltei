@@ -6,17 +6,17 @@ namespace AppAmalt.Dto
     public class GraphLifeMainDto
     {
         [JsonProperty("family")]
-        public int Family { get; set; }
+        public double Family { get; set; }
 
         [JsonProperty("career_money")]
-        public int CareerMoney { get; set; }
+        public double CareerMoney { get; set; }
         [JsonProperty("fame_power")]
-        public int FamePower { get; set; }
+        public double FamePower { get; set; }
         [JsonProperty("entertainment")]
-        public int Entertainment { get; set; }
+        public double Entertainment { get; set; }
         [JsonProperty("science")]
-        public int Science { get; set; }
+        public double Science { get; set; }
         [JsonProperty("Self_development")]
-        public int SelfDevelopment { get; set; }
+        public double SelfDevelopment { get; set; }
     }
 }

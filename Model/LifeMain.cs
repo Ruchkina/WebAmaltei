@@ -8,7 +8,13 @@ namespace AppAmalt.Model
 {
     public class LifeMain : Base
     {
-        public LifeMain(int family, int careerMoney, int famePower, int entertainment, int science, int selfDevelopment, int partyId, int id)
+        public double Family { get; set; }
+        public double CareerMoney { get; set; }
+        public double FamePower { get; set; }
+        public double Entertainment { get; set; }
+        public double Science { get; set; }
+        public double SelfDevelopment { get; set; }
+        public LifeMain(double family, double careerMoney, double famePower, double entertainment, double science, double selfDevelopment, int partyId, int id)
         {
             Family = family;
             CareerMoney = careerMoney;
@@ -19,11 +25,5 @@ namespace AppAmalt.Model
             PartyId = partyId;
             Id = id;
         }
-        public int Family { get; set; }
-        public int CareerMoney { get; set; }
-        public int FamePower { get; set; }
-        public int Entertainment { get; set; }
-        public int Science { get; set; }
-        public int SelfDevelopment { get; set; }
     }
 }

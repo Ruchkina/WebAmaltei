@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace AppAmalt.Repository
 {
-    public class AgeRepository : BasisRepository
+    public class AgeRepository : BasisRepository, IAgeRepository
     {
         public AgeRepository(DatabaseContexts context) : base(context) { }
 
         public async Task<GraphAgeDto> GetAgeAsync(int partyId)
         {
-            var answer = await _context.Ages
+            var answer = await _context.Age
                 .FirstOrDefaultAsync(w => w.PartyId == partyId);
             if (answer == null)
                 throw new Exception();

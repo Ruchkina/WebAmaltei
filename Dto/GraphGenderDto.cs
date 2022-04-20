@@ -7,7 +7,7 @@ namespace AppAmalt.Dto
 {
     public class GraphGenderDto
     {
-        public int Man { get; set; }
-        public int Woman { get; set; }
+        public double Man { get; set; }
+        public double Woman { get; set; }
     }
 }

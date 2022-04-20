@@ -8,7 +8,7 @@ namespace AppAmalt.Model
 {
     public class Age : Base
     {
-        public Age(int less20Age, int between20_30Age, int between30_40Age, int between40_60Age, int over60)
+        public Age(double less20Age, double between20_30Age, double between30_40Age, double between40_60Age, double over60)
         {
             Less20Age = less20Age;
             Between20_30Age = between20_30Age;
@@ -16,14 +16,11 @@ namespace AppAmalt.Model
             Between40_60Age = between40_60Age;
             Over60 = over60;
         }
-/*        public int PartyId { get; set; }
-        public Party Party { get; set; }
-        public int Id { get; set; }*/
-        public int Less20Age { get; set; }
-        public int Between20_30Age { get; set; }
-        public int Between30_40Age { get; set; }
-        public int Between40_60Age { get; set; }
-        public int Over60 { get; set; }
+        public double Less20Age { get; set; }
+        public double Between20_30Age { get; set; }
+        public double Between30_40Age { get; set; }
+        public double Between40_60Age { get; set; }
+        public double Over60 { get; set; }
 
 
     }

@@ -10,16 +10,16 @@ namespace AppAmalt.Model
     {
         /*public int PartyId { get; set; }
         public int Id { get; set; }*/
-        public int WomenFollower { get; set; }
-        public int MenFollower { get; set; }
+        public double WomenFollower { get; set; }
+        public double MenFollower { get; set; }
  /*       public Party Party { get; set; }*/
 
-        public Gender(int womenFollower, int menFollower, int partyId, int id)
+        public Gender(double womenFollower, double menFollower/*, int partyId, int id*/)
         {
             WomenFollower = womenFollower;
             MenFollower = menFollower;
-            PartyId = partyId;
-            Id = id;
+/*            PartyId = partyId;
+            Id = id;*/
         }
 
 

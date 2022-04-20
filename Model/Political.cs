@@ -12,14 +12,14 @@ namespace AppAmalt.Model
         public int Id { get; set; }
         public int PartyId { get; set; }*/
 
-        public int Communists { get; set; }
-        public int Socialists { get; set; }
-        public int Moderate { get; set; }
-        public int Liberals { get; set; }
-        public int Conservatives { get; set; }
-        public int Indifferents { get; set; }
+        public double Communists { get; set; }
+        public double Socialists { get; set; }
+        public double Moderate { get; set; }
+        public double Liberals { get; set; }
+        public double Conservatives { get; set; }
+        public double Indifferents { get; set; }
 
-        public Political(int communists, int socialists, int moderate, int liberals, int conservatives, int indifferents)
+        public Political(double communists, double socialists, double moderate, double liberals, double conservatives, double indifferents)
         {
             Communists = communists;
             Socialists = socialists;

@@ -13,8 +13,10 @@ namespace DatabaseContext
         public DbSet<Gender> Genders { get; set; }
         public DbSet<LifeMain> LifeMains { get; set; }
         public DbSet<Political> Politicals { get; set; }
-        public DbSet<Age> Ages { get; set; }
+        public DbSet<Age> Age { get; set; }
         public DbSet<Portrait> Portraits { get; set; }
+        public DbSet<Relation> Relations { get; set; }
+        public DbSet<Education> Educations { get; set; }
 
         public DatabaseContexts()
         { }

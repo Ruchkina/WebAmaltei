@@ -3,15 +3,17 @@ using System;
 using DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AppAmalt.Migrations
 {
     [DbContext(typeof(DatabaseContexts))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220420190548_Add_Relation_Education")]
+    partial class Add_Relation_Education
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

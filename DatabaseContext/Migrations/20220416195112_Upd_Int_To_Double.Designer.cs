@@ -3,15 +3,17 @@ using System;
 using DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AppAmalt.Migrations
 {
     [DbContext(typeof(DatabaseContexts))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220416195112_Upd_Int_To_Double")]
+    partial class Upd_Int_To_Double
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,32 +67,6 @@ namespace AppAmalt.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
-                });
-
-            modelBuilder.Entity("AppAmalt.Model.Education", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("PartyId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("School")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("University")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Work")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PartyId");
-
-                    b.ToTable("Educations");
                 });
 
             modelBuilder.Entity("AppAmalt.Model.Gender", b =>
@@ -219,8 +195,8 @@ namespace AppAmalt.Migrations
                     b.Property<string>("Age")
                         .HasColumnType("text");
 
-                    b.Property<int>("CityId")
-                        .HasColumnType("integer");
+                    b.Property<string>("City")
+                        .HasColumnType("text");
 
                     b.Property<string>("LifeMain")
                         .HasColumnType("text");
@@ -242,47 +218,10 @@ namespace AppAmalt.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
-
                     b.HasIndex("PartyId")
                         .IsUnique();
 
                     b.ToTable("Portraits");
-                });
-
-            modelBuilder.Entity("AppAmalt.Model.Relation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("ActiveResearch")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("CivilMerriage")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Engagement")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("HaveFriend")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Married")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("NotMarried")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("PartyId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PartyId");
-
-                    b.ToTable("Relations");
                 });
 
             modelBuilder.Entity("AppAmalt.Model.ValueCity", b =>
@@ -298,12 +237,13 @@ namespace AppAmalt.Migrations
                     b.Property<int>("PartyId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Value")
-                        .HasColumnType("integer");
+                    b.Property<double>("Value")
+                        .HasColumnType("double precision");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
+                    b.HasIndex("CityId")
+                        .IsUnique();
 
                     b.HasIndex("PartyId");
 
@@ -315,15 +255,6 @@ namespace AppAmalt.Migrations
                     b.HasOne("AppAmalt.Model.Party", "Party")
                         .WithOne("Age")
                         .HasForeignKey("AppAmalt.Model.Age", "PartyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("AppAmalt.Model.Education", b =>
-                {
-                    b.HasOne("AppAmalt.Model.Party", "Party")
-                        .WithMany()
-                        .HasForeignKey("PartyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -364,12 +295,6 @@ namespace AppAmalt.Migrations
 
             modelBuilder.Entity("AppAmalt.Model.Portrait", b =>
                 {
-                    b.HasOne("AppAmalt.Model.City", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("AppAmalt.Model.Party", "Party")
                         .WithOne("Portrait")
                         .HasForeignKey("AppAmalt.Model.Portrait", "PartyId")
@@ -377,20 +302,11 @@ namespace AppAmalt.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("AppAmalt.Model.Relation", b =>
-                {
-                    b.HasOne("AppAmalt.Model.Party", "Party")
-                        .WithMany()
-                        .HasForeignKey("PartyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("AppAmalt.Model.ValueCity", b =>
                 {
                     b.HasOne("AppAmalt.Model.City", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId")
+                        .WithOne("ValueCity")
+                        .HasForeignKey("AppAmalt.Model.ValueCity", "CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
